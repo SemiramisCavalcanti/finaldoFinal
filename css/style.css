@@ -472,7 +472,7 @@ html,body{
     border: none;
     border-radius: 8px;
 
-    background: #2B0A17;
+    background: var(--leaf);
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -484,3 +484,4 @@ html,body{
 #toggleDarkMode:hover{
     background: #5A0F2E;
 }
+
