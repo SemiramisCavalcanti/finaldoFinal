@@ -27,10 +27,10 @@
     isDarkMode = !isDarkMode;
 
     if (isDarkMode) {
-      mapImg.src = "../img/map_cafeteria_noite.png";
+      mapImg.src = "img/map_cafeteria_noite.png";
       toggleBtn.textContent = "☀️";
     } else {
-      mapImg.src = "../img/map_cafeteria.png";
+      mapImg.src = "img/map_cafeteria.png";
       toggleBtn.textContent = "   🌙";
     }
 
