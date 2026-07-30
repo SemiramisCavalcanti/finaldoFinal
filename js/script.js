@@ -17,6 +17,25 @@
 
   const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
+  const toggleBtn = document.getElementById("toggleDarkMode");
+  const mapImg = document.getElementById("mapImg");
+
+  let isDarkMode = false;
+
+  toggleBtn.addEventListener("click", () => {
+
+    isDarkMode = !isDarkMode;
+
+    if (isDarkMode) {
+      mapImg.src = "../img/map_cafeteria_noite.png";
+      toggleBtn.textContent = "☀️";
+    } else {
+      mapImg.src = "../img/map_cafeteria.png";
+      toggleBtn.textContent = "   🌙";
+    }
+
+  });
+
 
   const SEED_BEBIDAS = [
     { id: uid(), name: 'Expresso', price: 5, summary: 'Café curto e intenso, servido bem quente.' },
@@ -178,6 +197,7 @@
   const ron = { x: 1400, y: 600, speed: 260, facing: 1 };
   ronEl.style.left = ron.x + 'px';
   ronEl.style.top = ron.y + 'px';
+
 
   const pressed = new Set();
   const KEYMAP_MOVE = {
@@ -629,3 +649,7 @@
   }
   init();
 })();
+
+
+
+
