@@ -120,13 +120,55 @@
   const stage = document.getElementById('stage');
   const world = document.getElementById('world');
 
+  let cameraX = 0;
+  let cameraY = 0;
+  let scale = 1;
+
   function fitWorld() {
-    const vw = stage.clientWidth, vh = stage.clientHeight;
-    const scale = Math.min(vw / WORLD_W, vh / WORLD_H) * 1.0;
-    const scaledW = WORLD_W * scale, scaledH = WORLD_H * scale;
-    const tx = (vw - scaledW) / 2, ty = (vh - scaledH) / 2;
-    world.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+
+    const vw = stage.clientWidth;
+    const vh = stage.clientHeight;
+
+    if (vw < 768) {
+      scale = Math.max(vw / WORLD_W, vh / WORLD_H);
+    } else {
+      scale = Math.min(vw / WORLD_W, vh / WORLD_H);
+    }
+
+    updateCamera();
   }
+  function updateCamera() {
+
+    const vw = stage.clientWidth;
+    const vh = stage.clientHeight;
+
+    const viewW = vw / scale;
+    const viewH = vh / scale;
+
+    let targetX = player.x - viewW / 2;
+
+    let targetY;
+
+    if (vw < 768) {
+
+        // personagem mais embaixo da tela
+        targetY = player.y - viewH * 0.72;
+
+    } else {
+
+        targetY = player.y - viewH / 2;
+
+    }
+
+    targetX = Math.max(0, Math.min(targetX, WORLD_W - viewW));
+    targetY = Math.max(0, Math.min(targetY, WORLD_H - viewH));
+
+    cameraX += (targetX - cameraX) * 0.12;
+    cameraY += (targetY - cameraY) * 0.12;
+
+    world.style.transform =
+        `translate(${-cameraX * scale}px, ${-cameraY * scale}px) scale(${scale})`;
+}
   window.addEventListener('resize', fitWorld);
 
   /*   zonas  */
@@ -284,6 +326,7 @@
     playerEl.classList.toggle('facing-left', player.facing === -1);
     playerEl.style.left = player.x + 'px';
     playerEl.style.top = player.y + 'px';
+    updateCamera();
   }
 
   function updateProximity() {
