@@ -25,5 +25,5 @@ O projeto demonstra a integração entre desenvolvimento web e experiências int
 🚀 Gostou do projeto?
 Se este projeto despertou o seu interesse, deixe uma ⭐ no repositório e acompanhe o meu trabalho.
 
-📌 Siga-me no Instagram https://www.instagram.com/sscavalcanti/ e LinkedIn https://www.linkedin.com/in/semiramis-cavalcanti-01a18013b/, visite o meu LinkBio fenixecho.com.br para conhecer outros projetos e fique atento: o meu portfólio completo será lançado em breve!
+📌 Siga-me no Instagram https://www.instagram.com/sscavalcanti/ e LinkedIn https://www.linkedin.com/in/semiramis-cavalcanti-01a18013b/, visite o meu LinkBio https://fenixecho.com.br/ para conhecer outros projetos e fique atento: o meu portfólio completo será lançado em breve!
 Feedbacks, sugestões e novas conexões são sempre bem-vindos.
